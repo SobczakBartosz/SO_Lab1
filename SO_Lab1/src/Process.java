@@ -4,7 +4,7 @@ public class Process {
 	//Aga will create this class
 	
 	
-	//ar = Arrival Time (czas zg³oszenia) bt = Burst Time (d³ugoœæ fazy procesora) id = Number (numer) hm = How much (ile wykonano) isDone (czy wykonane)
+	//ar = Arrival Time (czas zgloszenia) bt = Burst Time (dlugosc fazy procesora) id = Number (numer) hm = How much (ile wykonano) isDone (czy wykonane)
 	private final int ar; 
 	private final int bt;
 	private final int id;
