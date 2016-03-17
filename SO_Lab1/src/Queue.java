@@ -34,6 +34,14 @@ public class Queue {
 		return queue.size();
 	}
 	
+	public Queue clone() {
+		Queue cloneQueue = new Queue();
+			for(int i = 0; i < queue.size(); i++)
+				cloneQueue.add(queue.get(i));
+			return cloneQueue;
+	}
+	
+	
 	public void viewProcesses() {
 		for(Process process : queue)
 		{
