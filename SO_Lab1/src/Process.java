@@ -4,15 +4,15 @@ public class Process {
 	//Aga will create this class
 	
 	
-	//ar = Arrival Time (czas zgloszenia) bt = Burst Time (dlugosc fazy procesora) id = Number (numer) hm = How much (ile wykonano) isDone (czy wykonane)
-	private final int ar; 
+	//at = Arrival Time (czas zgloszenia) bt = Burst Time (dlugosc fazy procesora) id = Number (numer) hm = How much (ile wykonano) isDone (czy wykonane)
+	private final int at; 
 	private final int bt;
 	private final int id;
 	private int hm;
 	private boolean isDone;
 	
-	public Process(int ar, int bt, int id){
-		this.ar = ar;
+	public Process(int at, int bt, int id){
+		this.at = at;
 		this.bt = bt;
 		this.id = id;
 		this.hm = 0;
@@ -23,8 +23,8 @@ public class Process {
 		return hm;
 	}
 
-	public int getAr() {
-		return ar;
+	public int getAt() {
+		return at;
 	}
 
 	public int getBt() {

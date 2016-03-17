@@ -37,7 +37,7 @@ public class Queue {
 	public void viewProcesses() {
 		for(Process process : queue)
 		{
-			System.out.printf("%s %d %s %d %s %d %n","Id: ", process.getId(),"Arrival Time: ", process.getAr(),"Burst Time: ", process.getBt());
+			System.out.printf("%s %d %s %d %s %d %n","Id: ", process.getId(),"Arrival Time: ", process.getAt(),"Burst Time: ", process.getBt());
 		}
 	}
 	
