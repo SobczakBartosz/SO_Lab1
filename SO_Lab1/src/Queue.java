@@ -26,8 +26,12 @@ public class Queue {
 		queue.remove(index);
 	}
 	
-	public boolean empty() {
+	public boolean isEmpty() { 
 		return queue.isEmpty();
+	}
+	
+	public void clear() {
+		queue.clear();
 	}
 	
 	public int size() {
