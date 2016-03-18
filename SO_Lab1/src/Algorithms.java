@@ -31,5 +31,17 @@ public class Algorithms {
 				return avrgWt;
 	}
 	
+	// SJFnp - non-preemtive SJF algotihm
+	public double SJFnp(Queue queue)
+	{
+		int ct = 0;
+		
+		double avrWt = 0.0;
+		return avrWt;
+	}
+	
+	
+
+	
 	
 }
