@@ -1,8 +1,9 @@
 import java.util.*;
 
 public class Algorithms {
-	//this class will contain FCFS, SJF and RoundRobin algorithms
-	//Aga will create FCFS Algorithm and Bartek will create SJF and RoundRobin algorithm
+	//this class contain FCFS, SJF and RoundRobin algorithms
+	//Aga will FCFS Algorithm and Bartek create SJF and RoundRobin algorithm
+	
 	// size - number of processes, ct - complition time, ct-at - turn around time, wt - waiting time, avrgWt - average waiting time
 	
 	public double FCFS(Queue queue)

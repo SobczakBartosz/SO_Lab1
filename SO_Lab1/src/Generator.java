@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Generator {
-	// this class will generate tests of the algorithms
-		//Bartek will create this class
+	// this class generate test's of the algorithms
+		//Bartek create this class
 	
 	public Queue generuj(int maxAt, int maxBt, int amount)
 	{

@@ -1,7 +1,7 @@
 
 public class Process {
-	// this class will contain process values
-	//Aga will create this class
+	// this class contain process values
+	//Aga create this class
 	
 	
 	//at = Arrival Time (czas zgloszenia) bt = Burst Time (dlugosc fazy procesora) id = Number (numer) hm = How much (ile wykonano) isDone (czy wykonane)

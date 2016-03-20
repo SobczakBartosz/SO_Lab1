@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Queue {
 	//this class simulate a queue
-	//Aga created this class
+	//Aga create this class
 	
 	ArrayList<Process> queue = new ArrayList<Process>();
 
