@@ -103,6 +103,7 @@ public class Algorithms {
 				if(q.getProcess(0).getHm() >= bt)
 				{
 					wt += (double)((ct-at)-bt);
+					q.getProcess(0).setHm(0);
 					q.deleteProcess(0);
 				}
 
@@ -116,7 +117,7 @@ public class Algorithms {
 	}
 	
 
-	// RR - Round Robin algorithm, qt - quantum time, 
+	// RR - Round Robin algorithm, qt - quantum time, pr - keep process
 	public double RR(Queue queue, int qt)
 	{
 		Queue cloneQueue = queue.clone();
@@ -128,9 +129,10 @@ public class Algorithms {
 		int bt = 0;
 		int hm = 0;
 		Process pr = null;
+		boolean tmp = false;
 		
-		Collections.sort(cloneQueue.queue, new ProcessComparator());
-		while(!cloneQueue.isEmpty())
+		Collections.sort(cloneQueue.queue, new ProcessComparator());		
+		while(!cloneQueue.isEmpty() || !q.isEmpty())
 		{
 			for(int i = 0; i < cloneQueue.size() && cloneQueue.getProcess(i).getAt() <= ct; i++)
 			{
@@ -138,7 +140,12 @@ public class Algorithms {
 				cloneQueue.deleteProcess(i);
 			}
 				
-			q.add(pr);
+				if(tmp)
+				{
+					q.add(pr);
+					tmp = false;
+				}
+
 
 			if(!q.isEmpty())
 			{
@@ -146,10 +153,11 @@ public class Algorithms {
 				bt = q.getProcess(0).getBt();
 				hm = q.getProcess(0).getHm();
 				
-				if(hm + qt >= bt)
+				if((hm + qt) >= bt)
 				{
 					ct += bt - hm;
 					wt += (double)((ct-at)-bt);
+					q.getProcess(0).setHm(0);
 					q.deleteProcess(0);
 				}
 				else
@@ -158,6 +166,7 @@ public class Algorithms {
 					q.getProcess(0).increase(qt);
 					pr = q.getProcess(0);
 					q.deleteProcess(0);
+					tmp = true;
 				}
 			}
 			else

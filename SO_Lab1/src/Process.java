@@ -39,6 +39,10 @@ public class Process {
 		this.hm += hm;
 	}
 	
+	public void setHm(int hm){
+		this.hm = hm;
+	}
+	
 	public boolean isDone() {
 		if (hm >= bt)
 			isDone = true;
