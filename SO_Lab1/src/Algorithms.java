@@ -43,7 +43,7 @@ public class Algorithms {
 		
 		
 		Collections.sort(cloneQueue.queue, new ProcessComparator());
-		while(!cloneQueue.isEmpty())
+		while(!cloneQueue.isEmpty() || !q.isEmpty())
 		{
 			for(int i = 0; i < cloneQueue.size() && cloneQueue.getProcess(i).getAt() <= ct; i++)
 			{
@@ -84,7 +84,7 @@ public class Algorithms {
 		
 		
 		Collections.sort(cloneQueue.queue, new ProcessComparator());
-		while(!cloneQueue.isEmpty())
+		while(!cloneQueue.isEmpty() || !q.isEmpty())
 		{
 			for(int i = 0; i < cloneQueue.size() && cloneQueue.getProcess(i).getAt() <= ct; i++)
 			{
@@ -116,6 +116,56 @@ public class Algorithms {
 	}
 	
 
-	
+	// RR - Round Robin algorithm, qt - quantum time, 
+	public double RR(Queue queue, int qt)
+	{
+		Queue cloneQueue = queue.clone();
+		Queue q = new Queue();
+		int size = cloneQueue.size();
+		double wt = 0.0; 
+		int ct = 0;
+		int at = 0;
+		int bt = 0;
+		int hm = 0;
+		Process pr = null;
+		
+		Collections.sort(cloneQueue.queue, new ProcessComparator());
+		while(!cloneQueue.isEmpty())
+		{
+			for(int i = 0; i < cloneQueue.size() && cloneQueue.getProcess(i).getAt() <= ct; i++)
+			{
+				q.add(cloneQueue.getProcess(i));
+				cloneQueue.deleteProcess(i);
+			}
+				
+			q.add(pr);
+
+			if(!q.isEmpty())
+			{
+				at = q.getProcess(0).getAt();
+				bt = q.getProcess(0).getBt();
+				hm = q.getProcess(0).getHm();
+				
+				if(hm + qt >= bt)
+				{
+					ct += bt - hm;
+					wt += (double)((ct-at)-bt);
+					q.deleteProcess(0);
+				}
+				else
+				{
+					ct += qt;
+					q.getProcess(0).increase(qt);
+					pr = q.getProcess(0);
+					q.deleteProcess(0);
+				}
+			}
+			else
+				++ct;
+		}
+		
+		double avrWt = wt/((double)size);
+		return avrWt;
+	}
 	
 }
