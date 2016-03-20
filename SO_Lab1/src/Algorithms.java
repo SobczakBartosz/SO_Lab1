@@ -68,9 +68,52 @@ public class Algorithms {
 		
 		double avrWt = wt/((double)size);
 		return avrWt;
-
 	}
 	
+	
+	// SJFp - preemtive SJF algorithm
+	public double SJFp(Queue queue)
+	{
+		Queue cloneQueue = queue.clone();
+		Queue q = new Queue();
+		int size = cloneQueue.size();
+		double wt = 0.0; 
+		int ct = 0;
+		int at = 0;
+		int bt = 0;
+		
+		
+		Collections.sort(cloneQueue.queue, new ProcessComparator());
+		while(!cloneQueue.isEmpty())
+		{
+			for(int i = 0; i < cloneQueue.size() && cloneQueue.getProcess(i).getAt() <= ct; i++)
+			{
+				q.add(cloneQueue.getProcess(i));
+				cloneQueue.deleteProcess(i);
+			}
+				
+			Collections.sort(q.queue, new ProcessComparator3());
+			if(!q.isEmpty())
+			{
+				at = q.getProcess(0).getAt();
+				bt = q.getProcess(0).getBt();
+				q.getProcess(0).increase(1);
+				++ct;
+				
+				if(q.getProcess(0).getHm() >= bt)
+				{
+					wt += (double)((ct-at)-bt);
+					q.deleteProcess(0);
+				}
+
+			}
+			else
+				++ct;
+		}
+		
+		double avrWt = wt/((double)size);
+		return avrWt;
+	}
 	
 
 	
